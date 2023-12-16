@@ -1,0 +1,92 @@
+location of
+manifestation of
+is a
+affects
+associated with
+interacts with
+result of
+complicates
+occurs in
+uses
+produces
+degree of
+connected to
+process of
+co-occurs with
+disrupts
+issue in
+part of
+measures
+prevents
+causes
+indicates
+treats
+evaluation of
+diagnoses
+exhibits
+ingredient of
+property of
+manages
+assesses effect of
+method of
+measurement of
+precedes
+consists of
+performs
+conceptual part of
+analyzes
+carries out
+developmental form of
+contains
+adjacent to
+interconnects
+conceptually related to
+surrounds
+derivative of
+practices
+location of <inv>
+manifestation of <inv>
+is a <inv>
+affects <inv>
+associated with <inv>
+interacts with <inv>
+result of <inv>
+complicates <inv>
+occurs in <inv>
+uses <inv>
+produces <inv>
+degree of <inv>
+connected to <inv>
+process of <inv>
+co-occurs with <inv>
+disrupts <inv>
+issue in <inv>
+part of <inv>
+measures <inv>
+prevents <inv>
+causes <inv>
+indicates <inv>
+treats <inv>
+evaluation of <inv>
+diagnoses <inv>
+exhibits <inv>
+ingredient of <inv>
+property of <inv>
+manages <inv>
+assesses effect of <inv>
+method of <inv>
+measurement of <inv>
+precedes <inv>
+consists of <inv>
+performs <inv>
+conceptual part of <inv>
+analyzes <inv>
+carries out <inv>
+developmental form of <inv>
+contains <inv>
+adjacent to <inv>
+interconnects <inv>
+conceptually related to <inv>
+surrounds <inv>
+derivative of <inv>
+practices <inv>
