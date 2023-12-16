@@ -19,7 +19,7 @@ The results of **CompilE_D** and **CompilE_N** on **WN18RR**, **FB15k237**, **UM
 ### 2. Reproduce the Results 
 To reproduce the above results, download the pkl files for the four datasets [here](https://drive.google.com/drive/folders/1V4z9FeunObC0IOvDcRNH5A5_uCWVxHsN).
 
-Move those pkl files to this directory, and run the following commands.
+Move those pkl files to the current directory, and run the following commands.
 
 ```shell script
 #################################### WN18RR ####################################
