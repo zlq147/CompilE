@@ -4,6 +4,17 @@ This is the code of paper
 **Modeling Knowledge Graphs with Composite Reasoning**. 
 Wanyun Cui, Linqiu Zhang. AAAI 2024
 
+### 1. Results
+The results of **CompilE_D** and **CompilE_N** on **WN18RR**, **FB15k237**, **UMLS** and **KINSHIP** are as follows.
+
+<p align="center">
+  <img src="./table3.png">
+</p>
+
+<p align="center">
+  <img src="./table4.png">
+</p>
+
 ### 2. Reproduce the Results 
 To reproduce the results of CompilE_D and CompilE_N on WN18RR, FB15k237, UMLS and KINSHIP,
 please run the following commands.
