@@ -2,6 +2,7 @@
 
 This is the code of paper 
 **Modeling Knowledge Graphs with Composite Reasoning**. 
+
 Wanyun Cui, Linqiu Zhang. AAAI 2024
 
 ### 1. Results
