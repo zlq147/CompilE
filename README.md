@@ -17,7 +17,11 @@ The results of **CompilE_D** and **CompilE_N** on **WN18RR**, **FB15k237**, **UM
 </p>
 
 ### 2. Reproduce the Results 
-To reproduce the above results, please run the following commands.
+To reproduce the above results, download the pkl files for the four datasets [here](https://drive.google.com/drive/folders/1V4z9FeunObC0IOvDcRNH5A5_uCWVxHsN).
+
+You can also run the commands without downloading those pkl files. The pkl files will be created before training, it may take some times.
+
+However the newly-constructed pkl files may **not** guarantee the results reproduction, thus we recommand you to download pkl files in advance, and then run the following commands.
 
 ```shell script
 #################################### WN18RR ####################################
