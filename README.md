@@ -17,8 +17,7 @@ The results of **CompilE_D** and **CompilE_N** on **WN18RR**, **FB15k237**, **UM
 </p>
 
 ### 2. Reproduce the Results 
-To reproduce the results of CompilE_D and CompilE_N on WN18RR, FB15k237, UMLS and KINSHIP,
-please run the following commands.
+To reproduce the above results, please run the following commands.
 
 ```shell script
 #################################### WN18RR ####################################
