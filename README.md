@@ -21,7 +21,7 @@ To reproduce the above results, download the pkl files for the four datasets [he
 
 You can also run the commands without downloading those pkl files. The pkl files will be created before training, it may take some times.
 
-However the newly-constructed pkl files may **not** guarantee the results reproduction, thus we recommand you to download pkl files in advance, and then run the following commands.
+However, the newly-constructed pkl files may **not** guarantee the results reproduction, thus we recommand you to download pkl files in advance, and then run the following commands.
 
 ```shell script
 #################################### WN18RR ####################################
