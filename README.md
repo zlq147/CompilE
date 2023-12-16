@@ -12,7 +12,7 @@ The results of **CompilE_D** and **CompilE_N** on **WN18RR**, **FB15k237**, **UM
 </p>
 
 <p align="center">
-  <img src="./table4.png" style="width:700px;height:500px;">
+  <img src="./table4.png" style="width:900px;height:450px;">
 </p>
 
 ### 2. Reproduce the Results 
