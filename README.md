@@ -87,7 +87,7 @@ CUDA_VISIBLE_DEVICES=0 nohup python learn.py --dataset kinship --model ComplEx -
 --regularizer knn --mode_list "hrt-rt-hrt;hrt-hr-hrt;hrt-t-hrt;hrt-h-hrt;hrt-hr-rt;hrt-rt-hr;hrt-hr-t;hrt-rt-h" \
 --n_pos 10 --w1 0.8 --w2 0.6 --w3 0.8 --fully_train \
 > trained_models/kinship/dura/gpu_0.out 2>&1 &
-'''
+```
 
 ## Acknowledgement
 We refer to the code of [kbc](https://github.com/facebookresearch/kbc) and [DURA](https://github.com/MIRALab-USTC/KGE-DURA). Thanks for their contributions.
