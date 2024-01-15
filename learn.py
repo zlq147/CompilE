@@ -13,8 +13,8 @@ from torch import optim
 from datasets import Dataset
 from models import CP, ComplEx, Distmult
 from regularizers import F2, N3, DURA, DURA_W, DURA_RESCAL
-from optimizers import KBCOptimizer, KBCOptimizer_lowrank
-from Regularizer_knn import Regularizer_knn
+from optimizers import KBCOptimizer, KBCOptimizer_composite
+from regularizer_composite import regularizer_composite
 import os
 import numpy as np
 
@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument(
-    '--dataset', choices=datasets, default = 'WN18RR',
+    '--dataset', choices=datasets, default = 'umls',
     help="Dataset in {}".format(datasets)
 )
 
@@ -38,9 +38,9 @@ parser.add_argument(
     help="Model in {}".format(models)
 )
 
-regularizers = ['N3', 'F2', 'knn', 'knn_ible', 'DURA', 'DURA_W', 'DURA_RESCAL']
+regularizers = ['N3', 'F2', 'composite', 'DURA', 'DURA_W', 'DURA_RESCAL']
 parser.add_argument(
-    '--regularizer', choices=regularizers, default='knn',
+    '--regularizer', choices=regularizers, default='composite',
     help="Regularizer in {}".format(regularizers)
 )
 
@@ -63,7 +63,7 @@ parser.add_argument(
     help="Factorization rank."
 )
 parser.add_argument(
-    '--batch_size', default=4, type=int,
+    '--batch_size', default=100, type=int,
     help="Factorization rank."
 )
 parser.add_argument(
@@ -120,15 +120,15 @@ parser.add_argument(
 # weights
 
 parser.add_argument(
-    '--w1', type=float, default= 0.1, help='weight for emb_len=1'
+    '--w1', type=float, default= 0, help='weight for emb_len=1'
 )
 
 parser.add_argument(
-    '--w2', type=float, default= 5, help='weight for emb_len=2'
+    '--w2', type=float, default= 0, help='weight for emb_len=2'
 )
 
 parser.add_argument(
-    '--w3', type=float, default= 50, help='weight for emb_len=3'
+    '--w3', type=float, default= 0, help='weight for emb_len=3'
 )
 
 
@@ -142,17 +142,8 @@ parser.add_argument(
     '--train_num', default=1000, type = int, help = 'num of examples to train'
 )
 
-# whether use curriculum learning
 parser.add_argument(
-    '--curri_learn', action='store_true'
-)
-
-parser.add_argument(
-    '--curri_epochs', default = 40.0, type = float
-)
-
-parser.add_argument(
-    '--knn_dist', type=str, default= 'rand', choices=['rand','jaccard']
+    '--fact_dist', type=str, default= 'rand', choices=['rand','jaccard']
 )
 
 # DURA related
@@ -191,7 +182,7 @@ args.gpu_id = 0
 print('parse finished.')
 
 def build_base(args): # build base path for checkpoints and logs
-    if args.regularizer == 'knn':
+    if args.regularizer == 'composite':
         if args.use_N3:
             model_name = f'{args.model}_lN3_{args.use_N3_weight}_w1_{args.w1}_w2_{args.w2}_w3_{args.w3}_lr_{args.learning_rate}_reg_{args.regularizer}'
         else:
@@ -297,8 +288,8 @@ def main(args): # model training
         regularizer = DURA_W(args.reg)
     elif args.regularizer == 'DURA_RESCAL':
         regularizer = DURA_RESCAL(args.reg)
-    elif args.regularizer == 'knn':
-        regularizer = Regularizer_knn(args, args.dataset, examples, dataset.n_entities, dataset.n_predicates)
+    elif args.regularizer == 'composite':
+        regularizer = regularizer_composite(args, args.dataset, examples, dataset.n_entities, dataset.n_predicates)
         
     assert regularizer is not None, "Invalid regularizer: {}".format(args.regularizer)
 
@@ -318,8 +309,8 @@ def main(args): # model training
     }[args.optimizer]()
 
     # build optimizer
-    if args.regularizer in ['lowrank', 'knn']:
-        optimizer = KBCOptimizer_lowrank(args, model, regularizer, optim_method, args.batch_size, \
+    if args.regularizer in ['lowrank', 'composite']:
+        optimizer = KBCOptimizer_composite(args, model, regularizer, optim_method, args.batch_size, \
             regularizer_N3 = N3(args.use_N3_weight), regularizer_DURA = DURA(args.use_DURA_weight), \
                 regularizer_DURA_W = DURA_W(args.use_DURA_W_weight), regularizer_DURA_RESCAL = DURA_RESCAL(args.use_DURA_RESCAL_weight))
     else:
