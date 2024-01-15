@@ -9,7 +9,7 @@ Wanyun Cui, Linqiu Zhang. AAAI 2024
 The results of **CompilE_D** and **CompilE_N** on **WN18RR**, **FB15k237**, **UMLS** and **KINSHIP** are as follows.
 
 <p align="center">
-  <img src="./table3.png">
+  <img src="./table3.png" style="width:700px;height:350px;">
 </p>
 
 <p align="center">
