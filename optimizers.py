@@ -54,7 +54,7 @@ class KBCOptimizer(object):
                 bar.set_postfix(loss=f'{np.mean(l_list):.4f}')
 
 
-class KBCOptimizer_lowrank():
+class KBCOptimizer_composite():
     def __init__(
             self, args, model: KBCModel, regularizer, optimizer: optim.Optimizer, batch_size: int = 256,
             verbose: bool = True, regularizer_N3 = None, regularizer_DURA = None, regularizer_DURA_W = None, regularizer_DURA_RESCAL = None
@@ -79,8 +79,6 @@ class KBCOptimizer_lowrank():
         self.fully_train = args.fully_train
         self.train_num = args.train_num
 
-        self.curri_learn = args.curri_learn
-        self.curri_epochs = args.curri_epochs
         self.epoch_num = 0.0
 
     def epoch(self, examples: torch.LongTensor, weight = None): # train model for one epoch
@@ -106,8 +104,6 @@ class KBCOptimizer_lowrank():
                 l_fit = loss(predictions, truth)
                 if self.no_reg == False:
                     l_reg, batch_log = self.regularizer.forward(input_batch, self.model.embeddings) # compute \hat{cr} defined in Theorem 4.2 of Sec 4.3
-                    if self.curri_learn:
-                        l_reg = l_reg * min(self.epoch_num / self.curri_epochs, 1.0)
 
                     if self.use_N3:
                         l_reg += self.regularizer_N3.forward(factors)
